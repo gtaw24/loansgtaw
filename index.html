@@ -68,10 +68,16 @@
         <label for="routing">Routing Number:</label>
         <input type="text" id="routing" name="routing" required>
 
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required>
+
         <label for="employment">Employment:</label>
         <select id="employment" name="employment" required>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
+
+             <label for="employer">Employer:</label>
+        <input type="text" id="employer" name="employer" required>
         </select>
 
         <label for="amount">Loan Amount:</label>
@@ -92,8 +98,10 @@
             const formData = {
                 fname: document.getElementById('fname').value,
                 phone: document.getElementById('phone').value,
+                phone: document.getElementById('age').value,
                 routing: document.getElementById('routing').value,
                 employment: document.getElementById('employment').value,
+                employment: document.getElementById('employer').value,
                 amount: document.getElementById('amount').value
             };
 
